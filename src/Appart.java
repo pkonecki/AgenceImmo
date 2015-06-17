@@ -21,28 +21,29 @@ public class Appart extends BienImmo
 		System.out.println ("donner le nbre de piece : ");
 		this.nbPiece = Console.saisirInt();
 		{    
-	    String unBalcon ="";
-	    System.out.println("l'appartement a t-il un balcon : O/N");
-		unBalcon=Console.saisirString();
-			
+			String unBalcon ="";
 		    do
 		    {
-			    if (unBalcon =="O") 
+		    	unBalcon=Console.saisirString();
+		    	System.out.println("l'appartement a t-il un balcon : O/N");
+			    if (unBalcon.equalsIgnoreCase("O")) 
 				    {
 				       System.out.println ( "l'appartement a un balcon" );
 				       this.balcon = true ;
+				       break;
 				    } 
 			    
 			    else  
 			    {
-			        if (unBalcon=="N")
+			        if (unBalcon.equalsIgnoreCase("N"))
 				        {
 				            System.out.println ("l'appartement n'a pas de balcon" );
 				            this.balcon = false ;
+				            break;
 				        }
 			    }
 			        //return balcon; 
-		    } while (unBalcon != "N" || unBalcon != "O");
+		    } while ( !unBalcon.equalsIgnoreCase("N") && !unBalcon.equalsIgnoreCase("O"));
 	    
 		   
 	    System.out.println ("Donner le montant de la caution : ");

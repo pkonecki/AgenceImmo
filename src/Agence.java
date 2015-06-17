@@ -54,13 +54,13 @@ public class Agence {
 			this.nom=Console.saisirString();
 			
 			System.out.println ("Donner l'adresse de l'agence");
-			this.nom=Console.saisirString();
+			this.adresse=Console.saisirString();
 			
 			System.out.println ("Donner le contact de l'agence");
-			this.nom=Console.saisirString();
+			this.contact=Console.saisirString();
 	}
 	
-	public void afficher()	
+	public void afficher()
 	{
 		System.out.println("\n\t" +
 				"\t ------------Infos sur l'agence ---------------\n"+
@@ -73,32 +73,33 @@ public class Agence {
 	public void ajouter ()
 	{
 		int choix =0;
-		System.out.println ("1 - pour un appart\n 2 - pour une maison\n 3 - pour une villa\n 0 pour quitter\n");
-		System.out.println ("votre choix");
-		
-		switch (choix)
-		{
-		case 1 : {
-			Appart unAppart = new Appart();
-			unAppart.saisir ();
-			this.lesBiens.add(unAppart);
-				}break;
-		
-		
-		case 2 : {
-			Maison uneMaison = new Maison();
-			uneMaison.saisir ();
-			this.lesBiens.add(uneMaison);
-				}break;
-		
-		case 3 : {
-			Villa uneVilla = new Villa();
-			uneVilla.saisir ();
-			this.lesBiens.add(uneVilla);
-				}break;
-		
-		
-		}while (choix !=0);
+
+		do {
+			System.out.println ("1 - pour un appart\n 2 - pour une maison\n 3 - pour une villa\n 0 pour quitter\n");
+			System.out.println ("votre choix");
+			choix = Console.saisirInt();
+			switch (choix)
+			{
+			case 1 : {
+				Appart unAppart = new Appart();
+				unAppart.saisir ();
+				this.lesBiens.add(unAppart);
+					}break;
+			
+			
+			case 2 : {
+				Maison uneMaison = new Maison();
+				uneMaison.saisir ();
+				this.lesBiens.add(uneMaison);
+					}break;
+			
+			case 3 : {
+				Villa uneVilla = new Villa();
+				uneVilla.saisir ();
+				this.lesBiens.add(uneVilla);
+					}break;
+			}
+		} while (choix != 0);
 		
 	}
 	
@@ -234,11 +235,11 @@ public class Agence {
 			choix = Console.saisirInt();
 			switch (choix)
 			{
-				case 1 : this.saisir();
-				case 2 : this.afficher();
-				case 3 : this.ajouter();
-				case 4 : this.afficherBiens();
-				case 5 : this.afficherLesApparts();
+				case 1 : this.saisir(); break;
+				case 2 : this.afficher(); break;
+				case 3 : this.ajouter(); break;
+				case 4 : this.afficherBiens(); break;
+				case 5 : this.afficherLesApparts(); break;
 				case 6 :
 				{
 				float prix, st;
@@ -248,6 +249,7 @@ public class Agence {
 				st = Console.saisirFloat();
 				System.out.println("Voici les maisons qui repondent aux criteres");
 				this.rechercherPS(prix, st);
+				break;
 				}
 				case 7 :
 				{
@@ -256,6 +258,7 @@ public class Agence {
 					ville = Console.saisirString();
 					
 					this.rechercherVille(ville);
+					break;
 				}
 				
 			}
